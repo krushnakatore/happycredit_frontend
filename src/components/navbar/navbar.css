@@ -1,0 +1,97 @@
+.navbarWrapper {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  align-items: center;
+  border-bottom: 1px solid rgb(219, 216, 216);
+  cursor: pointer;
+  font-weight: 16px;
+  z-index: 1;
+  background-color: white;
+}
+.navbarLeft {
+  flex: 4;
+  margin-left: -5%;
+}
+
+.navbarRight {
+  flex: 4;
+  display: flex;
+}
+.navbarRight .navbarRightLogin {
+  margin-left: 60%;
+  cursor: pointer;
+}
+.navbarRight .navbarRightApp {
+  margin-left: 5%;
+  cursor: pointer;
+}
+
+.navbarLeftList {
+  align-items: center;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+.navbarLogo {
+  width: 100px;
+  height: 64px;
+}
+.navbarLogo img {
+  width: 100%;
+}
+.navbarRightLoginBtn {
+  border-radius: 20px;
+  width: 70px;
+  padding: 8%;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.navbarRightAppBtn {
+  border-radius: 20px;
+  padding: 6%;
+  width: 120px;
+  border: none;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.navbarRightAppBtn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.navbarRightLoginBtn:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+.shopOption {
+  background-color: beige;
+  position: relative;
+  top: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -4%;
+  /* display: none; */
+}
+.col-3 {
+  text-align: left;
+}
+.col-3 img {
+  width: 100%;
+}
+.logo {
+  width: 50px;
+}
+.col-2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
