@@ -28,7 +28,9 @@
   border: none;
   width: 97%;
   cursor: pointer;
+  outline: none;
 }
+
 .homeWrapperRightProdfeatures {
   padding-top: 2%;
   padding-bottom: 2%;
@@ -77,4 +79,14 @@
 }
 .homeWrapperLeftList1 {
   margin-left: -10%;
+}
+.homeWrapperLeftList1 ul {
+  color: gray;
+}
+.homeWrapperLeftList1 ul:hover {
+  color: black;
+}
+.homeWrapperLeftList2 input,
+.homeWrapperLeftList3 input {
+  cursor: pointer;
 }

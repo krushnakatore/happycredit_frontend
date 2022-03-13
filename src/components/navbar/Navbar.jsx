@@ -18,10 +18,34 @@ export const Navbar = () => {
             >
               Shop
             </li>
-            <li>How it Works</li>
-            <li>Pay in 4</li>
-            <li>The Shopping App</li>
-            <li>Help</li>
+            <li
+              onMouseOver={() => {
+                setFlag(false);
+              }}
+            >
+              How it Works
+            </li>
+            <li
+              onMouseOver={() => {
+                setFlag(false);
+              }}
+            >
+              Pay in 4
+            </li>
+            <li
+              onMouseOver={() => {
+                setFlag(false);
+              }}
+            >
+              The Shopping App
+            </li>
+            <li
+              onMouseOver={() => {
+                setFlag(false);
+              }}
+            >
+              Help
+            </li>
           </ul>
         </div>
         <div className="navbarRight">

@@ -1,0 +1,34 @@
+.prodWrapper {
+  width: 500px;
+  height: 600px;
+  position: relative;
+  left: 35%;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.prodWrapperImg {
+  height: 80%;
+  width: 100%;
+}
+
+.prodWrapperImg img {
+  width: 100%;
+  height: 100%;
+}
+.prodWrapperBtn {
+  margin-left: 7%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.prodWrapperBtn button {
+  width: 90%;
+  padding: 3%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.prodWrapperTag {
+  font-size: 25px;
+}
