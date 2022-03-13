@@ -6,6 +6,9 @@ import icons, { SearchOutlined } from "@ant-design/icons";
 
 export const Home = () => {
   const [product, setProduct] = useState([]);
+  // const [coupons, setCoupons] = useState([]);
+  // const [exl, setExl] = useState([]);
+  // const [bogo, setBogo] = useState([]);
 
   useEffect(() => {
     getData();
@@ -14,12 +17,119 @@ export const Home = () => {
     await fetch(`http://localhost:3456/product`)
       .then((res) => res.json())
       .then((d) => {
-        console.log(d);
         setProduct(d);
       });
   }
 
-  console.log("p", product);
+  //coupons
+
+  async function handleChange1(e) {
+    if (e.target.checked) {
+      await fetch(`http://localhost:3456/product`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(
+            d.filter((ele) => {
+              return ele.type_name === "only coupons";
+            })
+          );
+        });
+    } else {
+      getData();
+    }
+  }
+  async function handleChange2(e) {
+    if (e.target.checked) {
+      await fetch(`http://localhost:3456/product`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(
+            d.filter((ele) => {
+              return ele.type_name === "exclusives";
+            })
+          );
+        });
+    } else {
+      getData();
+    }
+  }
+  async function handleChange3(e) {
+    if (e.target.checked) {
+      await fetch(`http://localhost:3456/product`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(
+            d.filter((ele) => {
+              return ele.type_name === "BOGO and more";
+            })
+          );
+        });
+    } else {
+      getData();
+    }
+  }
+
+  //discount
+
+  async function handleDiscount1(e) {
+    if (e.target.checked) {
+      await fetch(`http://localhost:3456/product`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(
+            d.filter((ele) => {
+              return ele.discount < 50;
+            })
+          );
+        });
+    } else {
+      getData();
+    }
+  }
+
+  async function handleDiscount2(e) {
+    if (e.target.checked) {
+      await fetch(`http://localhost:3456/product`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(
+            d.filter((ele) => {
+              return ele.discount >= 50;
+            })
+          );
+        });
+    } else {
+      getData();
+    }
+  }
+
+  //sorting from a to z;
+
+  async function handleSort(e) {
+    let abc = e.target.value;
+    console.log("eatrget", e.target.value);
+
+    if (abc == "A-Z") {
+      await fetch(`http://localhost:3456/product/sort`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(d);
+        });
+    } else if (abc == "Newests") {
+      await fetch(`http://localhost:3456/product`)
+        .then((res) => res.json())
+        .then((d) => {
+          setProduct(
+            d.filter((ele) => {
+              return ele.discount >= 50;
+            })
+          );
+        });
+    } else {
+      getData();
+    }
+  }
+
   return (
     <div>
       <Navbar />
@@ -55,25 +165,21 @@ export const Home = () => {
               <hr />
               <div className="homeWrapperLeftList2">
                 <ul>Filters</ul>
-                <input
-                  type="checkbox"
-                  name="Only Coupons"
-                  value="Only Coupons"
-                ></input>
+                <input type="checkbox" onChange={handleChange1}></input>
                 <label>Only Coupons</label>
                 <br />
                 <input
                   type="checkbox"
                   name="Exclusives"
                   value="Exclusives"
+                  onChange={handleChange2}
                 ></input>
                 <label>Exclusives</label>
                 <br />
                 <input
                   type="checkbox"
-                  id="vehicle1"
-                  name="vehicle1"
                   value="Bike"
+                  onChange={handleChange3}
                 ></input>
                 <label>BOGO and more</label>
               </div>
@@ -82,17 +188,15 @@ export const Home = () => {
                 <ul>Discount</ul>
                 <input
                   type="checkbox"
-                  id="vehicle1"
-                  name="vehicle1"
                   value="Bike"
+                  onChange={handleDiscount1}
                 ></input>
                 <label>0-49% off</label>
                 <br />
                 <input
                   type="checkbox"
-                  id="vehicle1"
-                  name="vehicle1"
                   value="Bike"
+                  onChange={handleDiscount2}
                 ></input>
                 <label>50-80% off</label>
               </div>
@@ -112,7 +216,7 @@ export const Home = () => {
               <div className="homeWrapperRightProdfeatures">
                 <div>98 deals</div>
                 <div>
-                  <select>
+                  <select name="sort" onChange={handleSort}>
                     <option value="Featured">Featured</option>
                     <option value="A-Z">A-Z</option>
                     <option value="Newest">Newest</option>
