@@ -4,12 +4,14 @@ import { Navbar } from "../navbar/Navbar";
 import Input from "antd/lib/input/Input";
 import icons, { SearchOutlined } from "@ant-design/icons";
 import { Product } from "../popup/Product";
+import { Footer } from "../footer/Footer";
 
 export const Home = () => {
   const [product, setProduct] = useState([]);
   const [c, setC] = useState(false);
   const [data, setData] = useState();
   const [height, setHeight] = useState(0);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     getData();
@@ -135,9 +137,9 @@ export const Home = () => {
     setHeight(window.innerHeight);
   }, [height]);
 
-  if (c) {
+  if (show) {
     var obj = {
-      opacity: "0.5",
+      opacity: "0.7",
     };
   }
 
@@ -244,6 +246,7 @@ export const Home = () => {
                         onClick={() => {
                           setC((prev) => !prev);
                           setData(prod);
+                          setShow(true);
                         }}
                       >
                         <div className="homeWrapperRightProdSingleImg">
@@ -262,10 +265,10 @@ export const Home = () => {
           </div>
         </div>
       </div>
-
-      {c ? (
+      {/* <Footer /> */}
+      {show ? (
         <>
-          <Product value={data} height={height} />
+          <Product value={data} height={height} show={show} setShow={setShow} />
         </>
       ) : (
         ""

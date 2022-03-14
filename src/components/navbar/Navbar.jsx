@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./navbar.css";
 
-export const Navbar = () => {
+export const Navbar = ({ obj }) => {
   const [flag, setFlag] = useState();
   return (
     <div className="navbarMain">
-      <div className="navbarWrapper">
+      <div className="navbarWrapper" style={obj}>
         <div className="navbarLeft">
           <ul className="navbarLeftList">
             <li className="navbarLogo">

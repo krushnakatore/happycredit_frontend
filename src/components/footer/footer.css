@@ -1,0 +1,8 @@
+.footerWrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  height: 500px;
+  position: relative;
+}
