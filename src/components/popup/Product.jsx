@@ -23,7 +23,11 @@ export const Product = ({ value, height, show, setShow }) => {
       <div className="prodWrapper" style={obj}>
         <div className="prodWrapperImg">
           <img src={value.images} alt={value.product_name} />
-          <CloseOutlined onClick={() => setShow(false)} />
+          <div className="prodWrapperClose" onClick={() => setShow(false)}>
+            <div className="prodWrapperCloseIcon">
+              <CloseOutlined style={{ paddingLeft: "10%" }} />
+            </div>
+          </div>
         </div>
         <div className="prodWrapperTag">
           <strong>{value.inner_tagline}</strong>

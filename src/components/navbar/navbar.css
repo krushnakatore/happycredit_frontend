@@ -99,3 +99,23 @@
   border-bottom: 1px solid skyblue;
   color: skyblue;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbarLeftList li {
+    visibility: hidden;
+  }
+  .navbarLogo img {
+    visibility: visible;
+    width: 120%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .navbarLeftList li {
+    visibility: hidden;
+  }
+  .navbarLogo img {
+    visibility: visible;
+    width: 150%;
+  }
+}

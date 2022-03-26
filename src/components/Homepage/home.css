@@ -74,6 +74,9 @@
 .homeWrapperRightProdSingle {
   padding: 1% 0 1% 0;
 }
+.homeWrapperRightProdSingleImg img:hover {
+  border: 2px solid blue;
+}
 .homeWrapperRightProdName {
   padding-top: 1%;
 }
@@ -89,4 +92,34 @@
 .homeWrapperLeftList2 input,
 .homeWrapperLeftList3 input {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .homeWrapperLeftList1 ul {
+    visibility: hidden;
+  }
+  .homeWrapperLeftList2 {
+    visibility: hidden;
+  }
+  .hr {
+    visibility: hidden;
+  }
+  .homeWrapperLeftList3 {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .homeWrapperLeftList1 ul {
+    visibility: hidden;
+  }
+  .homeWrapperLeftList2 {
+    visibility: hidden;
+  }
+  .hr {
+    visibility: hidden;
+  }
+  .homeWrapperLeftList3 {
+    visibility: hidden;
+  }
 }

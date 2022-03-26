@@ -1,14 +1,30 @@
 .prodWrapper {
-  width: 400px;
+  width: 500px;
   height: 600px;
   position: relative;
   background-color: white;
 }
 
 .prodWrapperImg {
-  height: 100%;
+  height: 80%;
   width: 100%;
   display: flex;
+}
+.prodWrapperClose {
+  font-size: 30px;
+  margin-left: -10%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 1%;
+}
+.prodWrapperCloseIcon {
+  justify-content: center;
+
+  align-items: center;
+  width: 40px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .prodWrapperImg img {

@@ -17,6 +17,7 @@ export const Home = () => {
     getData();
   }, []);
   async function getData() {
+    console.log("loading...");
     await fetch(`https://happycreditbackend.herokuapp.com/product`)
       .then((res) => res.json())
       .then((d) => {
@@ -176,7 +177,7 @@ export const Home = () => {
                     <ul>See all 14</ul>
                   </div>
                 </div>
-                <hr />
+                <hr className="hr" />
                 <div className="homeWrapperLeftList2">
                   <ul>Filters</ul>
                   <input type="checkbox" onChange={handleChange1}></input>
@@ -197,7 +198,7 @@ export const Home = () => {
                   ></input>
                   <label>BOGO and more</label>
                 </div>
-                <hr />
+                <hr className="hr" />
                 <div className="homeWrapperLeftList3">
                   <ul>Discount</ul>
                   <input
