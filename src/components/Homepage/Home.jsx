@@ -12,22 +12,25 @@ export const Home = () => {
   const [data, setData] = useState();
   const [height, setHeight] = useState(0);
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
   async function getData() {
-    console.log("loading...");
+    setLoading(true);
     await fetch(`https://happycreditbackend.herokuapp.com/product`)
       .then((res) => res.json())
       .then((d) => {
         setProduct(d);
+        setLoading(false);
       });
   }
 
   //coupons
 
   async function handleChange1(e) {
+    setLoading(true);
     if (e.target.checked) {
       await fetch(`https://happycreditbackend.herokuapp.com/product`)
         .then((res) => res.json())
@@ -37,12 +40,16 @@ export const Home = () => {
               return ele.type_name === "only coupons";
             })
           );
+          setLoading(false);
         });
     } else {
+      setLoading(true);
       getData();
+      setLoading(false);
     }
   }
   async function handleChange2(e) {
+    setLoading(true);
     if (e.target.checked) {
       await fetch(`https://happycreditbackend.herokuapp.com/product`)
         .then((res) => res.json())
@@ -52,12 +59,16 @@ export const Home = () => {
               return ele.type_name === "exclusives";
             })
           );
+          setLoading(false);
         });
     } else {
+      setLoading(true);
       getData();
+      setLoading(false);
     }
   }
   async function handleChange3(e) {
+    setLoading(true);
     if (e.target.checked) {
       await fetch(`https://happycreditbackend.herokuapp.com/product`)
         .then((res) => res.json())
@@ -67,15 +78,19 @@ export const Home = () => {
               return ele.type_name === "BOGO and more";
             })
           );
+          setLoading(false);
         });
     } else {
+      setLoading(true);
       getData();
+      setLoading(false);
     }
   }
 
   //discount
 
   async function handleDiscount1(e) {
+    setLoading(true);
     if (e.target.checked) {
       await fetch(`https://happycreditbackend.herokuapp.com/product`)
         .then((res) => res.json())
@@ -85,13 +100,17 @@ export const Home = () => {
               return ele.discount < 50;
             })
           );
+          setLoading(false);
         });
     } else {
+      setLoading(true);
       getData();
+      setLoading(false);
     }
   }
 
   async function handleDiscount2(e) {
+    setLoading(true);
     if (e.target.checked) {
       await fetch(`https://happycreditbackend.herokuapp.com/product`)
         .then((res) => res.json())
@@ -101,9 +120,12 @@ export const Home = () => {
               return ele.discount >= 50;
             })
           );
+          setLoading(false);
         });
     } else {
+      setLoading(true);
       getData();
+      setLoading(false);
     }
   }
 
@@ -114,12 +136,15 @@ export const Home = () => {
     console.log("eatrget", e.target.value);
 
     if (abc == "A-Z") {
+      setLoading(true);
       await fetch(`https://happycreditbackend.herokuapp.com/product/sort`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(d);
+          setLoading(false);
         });
     } else if (abc == "Newests") {
+      setLoading(true);
       await fetch(`https://happycreditbackend.herokuapp.com/product`)
         .then((res) => res.json())
         .then((d) => {
@@ -128,9 +153,12 @@ export const Home = () => {
               return ele.discount >= 50;
             })
           );
+          setLoading(false);
         });
     } else {
+      setLoading(true);
       getData();
+      setLoading(false);
     }
   }
 
@@ -239,27 +267,33 @@ export const Home = () => {
                   </div>
                 </div>
                 <div className="homeWrapperRightProdList">
-                  {product.map((prod) => {
-                    return (
-                      <div
-                        key={prod._id}
-                        className="homeWrapperRightProdSingle"
-                        onClick={() => {
-                          setC((prev) => !prev);
-                          setData(prod);
-                          setShow(true);
-                        }}
-                      >
-                        <div className="homeWrapperRightProdSingleImg">
-                          <img src={prod.images} alt="product" />
-                        </div>
-                        <div className="homeWrapperRightProdName">
-                          <strong>{prod.product_name}</strong>
-                        </div>
-                        <div>{prod.tagline}</div>
-                      </div>
-                    );
-                  })}
+                  {loading ? (
+                    <div>Loading...</div>
+                  ) : (
+                    <>
+                      {product.map((prod) => {
+                        return (
+                          <div
+                            key={prod._id}
+                            className="homeWrapperRightProdSingle"
+                            onClick={() => {
+                              setC((prev) => !prev);
+                              setData(prod);
+                              setShow(true);
+                            }}
+                          >
+                            <div className="homeWrapperRightProdSingleImg">
+                              <img src={prod.images} alt="product" />
+                            </div>
+                            <div className="homeWrapperRightProdName">
+                              <strong>{prod.product_name}</strong>
+                            </div>
+                            <div>{prod.tagline}</div>
+                          </div>
+                        );
+                      })}
+                    </>
+                  )}
                 </div>
               </div>
             </div>
