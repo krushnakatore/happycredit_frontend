@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "./home.css";
-import { Navbar } from "../navbar/Navbar";
-import Input from "antd/lib/input/Input";
-import icons, { SearchOutlined } from "@ant-design/icons";
-import { Product } from "../popup/Product";
-import { Footer } from "../footer/Footer";
+import React, { useEffect, useState } from 'react';
+import './home.css';
+import { Navbar } from '../navbar/Navbar';
+import Input from 'antd/lib/input/Input';
+import icons, { SearchOutlined } from '@ant-design/icons';
+import { Product } from '../popup/Product';
+import { Footer } from '../footer/Footer';
 
 export const Home = () => {
   const [product, setProduct] = useState([]);
@@ -19,7 +19,7 @@ export const Home = () => {
   }, []);
   async function getData() {
     setLoading(true);
-    await fetch(`https://happycreditbackend.herokuapp.com/product`)
+    await fetch(`https://claraback.onrender.com/product`)
       .then((res) => res.json())
       .then((d) => {
         setProduct(d);
@@ -32,12 +32,12 @@ export const Home = () => {
   async function handleChange1(e) {
     setLoading(true);
     if (e.target.checked) {
-      await fetch(`https://happycreditbackend.herokuapp.com/product`)
+      await fetch(`https://claraback.onrender.com/product`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(
             d.filter((ele) => {
-              return ele.type_name === "only coupons";
+              return ele.type_name === 'only coupons';
             })
           );
           setLoading(false);
@@ -51,12 +51,12 @@ export const Home = () => {
   async function handleChange2(e) {
     setLoading(true);
     if (e.target.checked) {
-      await fetch(`https://happycreditbackend.herokuapp.com/product`)
+      await fetch(`https://claraback.onrender.com/product`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(
             d.filter((ele) => {
-              return ele.type_name === "exclusives";
+              return ele.type_name === 'exclusives';
             })
           );
           setLoading(false);
@@ -70,12 +70,12 @@ export const Home = () => {
   async function handleChange3(e) {
     setLoading(true);
     if (e.target.checked) {
-      await fetch(`https://happycreditbackend.herokuapp.com/product`)
+      await fetch(`https://claraback.onrender.com/product`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(
             d.filter((ele) => {
-              return ele.type_name === "BOGO and more";
+              return ele.type_name === 'BOGO and more';
             })
           );
           setLoading(false);
@@ -92,7 +92,7 @@ export const Home = () => {
   async function handleDiscount1(e) {
     setLoading(true);
     if (e.target.checked) {
-      await fetch(`https://happycreditbackend.herokuapp.com/product`)
+      await fetch(`https://claraback.onrender.com/product`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(
@@ -112,7 +112,7 @@ export const Home = () => {
   async function handleDiscount2(e) {
     setLoading(true);
     if (e.target.checked) {
-      await fetch(`https://happycreditbackend.herokuapp.com/product`)
+      await fetch(`https://claraback.onrender.com/product`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(
@@ -133,19 +133,18 @@ export const Home = () => {
 
   async function handleSort(e) {
     let abc = e.target.value;
-    console.log("eatrget", e.target.value);
 
-    if (abc == "A-Z") {
+    if (abc == 'A-Z') {
       setLoading(true);
-      await fetch(`https://happycreditbackend.herokuapp.com/product/sort`)
+      await fetch(`https://claraback.onrender.com/product/sort`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(d);
           setLoading(false);
         });
-    } else if (abc == "Newests") {
+    } else if (abc == 'Newests') {
       setLoading(true);
-      await fetch(`https://happycreditbackend.herokuapp.com/product`)
+      await fetch(`https://claraback.onrender.com/product`)
         .then((res) => res.json())
         .then((d) => {
           setProduct(
@@ -168,7 +167,7 @@ export const Home = () => {
 
   if (show) {
     var obj = {
-      opacity: "0.7",
+      opacity: '0.7',
     };
   }
 
@@ -189,7 +188,7 @@ export const Home = () => {
                   <div className="homeWrapperLeftList1">
                     <ul>
                       <strong>
-                        <h3 style={{ color: "black" }}>Categories</h3>
+                        <h3 style={{ color: 'black' }}>Categories</h3>
                       </strong>
                     </ul>
                     <ul>All Deals</ul>
@@ -306,7 +305,7 @@ export const Home = () => {
           <Product value={data} height={height} show={show} setShow={setShow} />
         </>
       ) : (
-        ""
+        ''
       )}
     </div>
   );

@@ -1,7 +1,7 @@
-import { CloseOutlined } from "@ant-design/icons";
-import React from "react";
-import Modal from "react-modal";
-import "./product.css";
+import { CloseOutlined } from '@ant-design/icons';
+import React from 'react';
+import Modal from 'react-modal';
+import './product.css';
 
 export const Product = ({ value, height, show, setShow }) => {
   const obj = {
@@ -9,12 +9,14 @@ export const Product = ({ value, height, show, setShow }) => {
   };
   const customStyles = {
     content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      border: "none",
-      transform: "translate(-50%, -50%)",
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      border: 'none',
+      height: '90%',
+      width: '25%',
+      transform: 'translate(-50%, -50%)',
     },
   };
 
@@ -25,7 +27,7 @@ export const Product = ({ value, height, show, setShow }) => {
           <img src={value.images} alt={value.product_name} />
           <div className="prodWrapperClose" onClick={() => setShow(false)}>
             <div className="prodWrapperCloseIcon">
-              <CloseOutlined style={{ paddingLeft: "10%" }} />
+              <CloseOutlined style={{ paddingLeft: '10%' }} />
             </div>
           </div>
         </div>
@@ -36,7 +38,7 @@ export const Product = ({ value, height, show, setShow }) => {
         <div className="prodWrapperBtn">
           <button>Shop Deal</button>
         </div>
-        <div style={{ fontSize: "13px" }}>
+        <div style={{ fontSize: '13px' }}>
           Deals are offered directly by the retailer and subject to their terms.
           Klarna does not guarantee any deal. Klarna may get a commission.
         </div>
