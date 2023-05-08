@@ -14,8 +14,6 @@ export const Product = ({ value, height, show, setShow }) => {
       right: 'auto',
       bottom: 'auto',
       border: 'none',
-      height: '90%',
-      width: '25%',
       transform: 'translate(-50%, -50%)',
     },
   };
